@@ -1,0 +1,25 @@
+{% include 'header.html' %}
+
+{% if usuario %}
+  <h1>Hello {{ usuario.0 }}!</h1>
+  <form action="/save_file" method="POST" enctype="multipart/form-data">
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>File</span>
+          <input type="file" name="file">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+        <div class="col s12">
+            <input type="text" name="id_user" placeholder="email" value="{{ usuario.0 }}" hidden>
+        </div>
+      </div>
+      <div class="col s12">
+          <button type="submit">Save</button>
+      </div>
+    </form>
+{% else %}
+  <h1>Hello, World!</h1>
+{% endif %}
+{% include 'footer.html' %}
