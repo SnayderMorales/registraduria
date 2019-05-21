@@ -26,20 +26,20 @@ class Automata:
         
         estados.add('q'+str(j-1))
         transicion['q'+str(i)] = {'': {'q'+str(i)}}
-        print('-----------------------------')
         print('Cadena')
         print(cadena)
-        print('Cadena 2')
-        print(cadena2)
+        print('------------Quintupla-----------------')
         print('Transiciones')
         print(transicion)
         print('Estados')
         print(estados)
         print('Simbolos')
         print(simbolos)
+        print('Estado Inicial')
+        print('q0')
         print('Estado final')
         print('q'+str(i))
-        print('-----------------------------')
+        print('-------------Final de Quintupla----------------')
         nfa = NFA(
     states=estados,
     input_symbols=simbolos,
@@ -61,26 +61,20 @@ class Automata:
                     break
                 for val in valor:
                     if(cadena[i]==val):
-                        print(cadena[i] +' = '+val)
+                        #print(cadena[i] +' = '+val)
                         i = i+1
                         j=j+1
-                        print(i)
-                        print('Estado recorrido')
-                        print(len(cadena)==i)
-                        print(len(cadena))
                         estadoFinal = salto
                     else:
-                        print(cadena[i] +' != '+val)
+                        #print(cadena[i] +' != '+val)
                         print('La cadena no cumple con el automata estado en el '+ salto+ '; Archivo son diferentes')
                         romper = True
                         break
         fin = list(nfa.final_states)
         finalRecorrido = int(estadoFinal.replace('q',''))
-        finalEstado = int(str(fin[0]).replace('q','')) 
-        print(len(cadena)==i)
-        print(finalEstado-finalRecorrido == 1)       
+        finalEstado = int(str(fin[0]).replace('q',''))      
         if len(cadena)==i and finalEstado-finalRecorrido == 1:
-            return 'La cadena cumple con el automata archivos iguales'
+            return 'La cadena cumple con el automata archivos existe'
         else:
             return 'La cadena no cumple con el automata archivos no existe'
         

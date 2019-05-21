@@ -1,16 +1,34 @@
 {% include 'header.html' %}
-  <form action="/query_file" method="POST" enctype="multipart/form-data">
-      <div class="file-field input-field">
-        <div class="btn">
-          <span>File</span>
-          <input type="file" name="file">
-        </div>
-        <div class="file-path-wrapper">
-          <input class="file-path validate" type="text">
-        </div>
-      </div>
+<section class="cover" style="background-image: url(/static/image/doors-1767564_1920.png)">
+  <div class="container caja">
+    <div class="row">
       <div class="col s12">
-          <button type="submit">Save</button>
+        <h5 class="white-text center">
+          Consulte archivo
+        </h5>
       </div>
-    </form>
+      <form action="/query_file" method="POST" enctype="multipart/form-data">
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>File</span>
+            <input type="file" name="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+        <div class="col s12 center">
+          <button class="btn" type="submit">Consultar</button>
+        </div>
+      </form>
+      {% if resultado %}
+      <div class="col s12 center">
+        <h6 class="white-text">{{ resultado }}</h6>
+      </div>
+      {% else %}
+      <div></div>
+      {% endif %}
+    </div>
+  </div>
+</section>
 {% include 'footer.html' %}

@@ -1,0 +1,18 @@
+.cover {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.caja {
+    background: #27283180;
+    width: 40%;
+    padding: 40px;
+}
+
+input {
+    color: white;
+}

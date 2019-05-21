@@ -1,19 +1,30 @@
 {% include 'header.html' %}
-<form action="/add_contact" method="POST">
-    <div class="col s12">
-        <input type="text" name="nombre" placeholder="Nombres">
+<section class="cover" style="background-image: url(/static/image/hotel-1330850_1920.jpg)">
+    <div class="container caja">
+        <div class="row">
+            <form action="/add_contact" method="POST">
+                <div class="col s12">
+                    <h5 class="white-text center">
+                        Registrate
+                    </h5>
+                </div>
+                <div class="col s12">
+                    <input type="text" name="nombre" placeholder="Nombres">
+                </div>
+                <div class="col s12">
+                    <input type="text" name="apellidos" placeholder="Apellidos">
+                </div>
+                <div class="col s12">
+                    <input type="text" name="email" placeholder="email">
+                </div>
+                <div class="col s12">
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+                <div class="col s12 center">
+                    <button type="submit" class="btn">Save</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="col s12">
-        <input type="text" name="apellidos" placeholder="Apellidos">
-    </div>
-    <div class="col s12">
-        <input type="text" name="email" placeholder="email">
-    </div>
-    <div class="col s12">
-        <input type="text" name="password" placeholder="Password">
-    </div>
-    <div class="col s12">
-        <button type="submit">Save</button>
-    </div>
-</form>
+</section>
 {% include 'footer.html' %}

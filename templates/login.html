@@ -1,15 +1,24 @@
 {% include 'header.html' %}
 <section class="cover" style="background-image: url(/static/image/key-3348307_1920.jpg)">
-    <form action="/login" method="POST">
-        <div class="col s12">
-            <input type="text" name="email" placeholder="email">
+    <div class="container caja">
+        <div class="row">
+                <div class="col s12">
+                        <h5 class="white-text center">
+                            Entrar
+                        </h5>
+                    </div>
+            <form action="/login" method="POST">
+                <div class="col s12">
+                    <input type="text" name="email" placeholder="email">
+                </div>
+                <div class="col s12">
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+                <div class="col s12 center">
+                    <button class="btn" type="submit">Entrar</button>
+                </div>
+            </form>
         </div>
-        <div class="col s12">
-            <input type="text" name="password" placeholder="Password">
-        </div>
-        <div class="col s12">
-            <button type="submit">Save</button>
-        </div>
-    </form>
+    </div>
 </section>
 {% include 'footer.html' %}

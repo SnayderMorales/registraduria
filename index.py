@@ -103,6 +103,7 @@ def save_file():
 def query_file():
     if request.method == 'POST':
             archivo = Files()
+            
             # check if the post request has the file part
             if 'file' not in request.files:
                 flash('No file part')
@@ -123,12 +124,8 @@ def query_file():
                 with open(ruta, "rb") as archivo:
                     f = archivo.read()
                     b = bytearray(f)
-                    print(b)
                     fb = archivo.read(BLOCKSIZE)
                     filehash.update(fb)
-                print('-----Bytes--------')
-                print(b)
-                print(filehash.hexdigest())
                 cur = mysql.connection.cursor()
                 cur.execute('SELECT * FROM files WHERE hash= %s',
                 [filehash.hexdigest()])
@@ -140,16 +137,12 @@ def query_file():
                 with open(data[1], "rb") as archivo:
                     f = archivo.read()
                     a = bytearray(f)
-                    print('-----test--------')
-                    print(b)
                     fa = archivo.read(BLOCKSIZE)
-                    print('-----Bytes--------')
-                    print(fa)
                
                 print(automata.automata(a, b))
-
-                return redirect(url_for('query_file',
-                            filename=filename))
+                result = automata.automata(a, b)
+                return render_template('query.html',
+                            resultado=result )
     return render_template('query.html')
 
 
