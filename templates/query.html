@@ -21,15 +21,17 @@
           <button class="btn" type="submit">Consultar</button>
         </div>
       </form>
-      {% if resultado != 'No existe' %}
+      {% if resultado != 'No existe' and  resultado != '' %}
       <div class="col s12 center">
-          <h6 class="white-text">Usuario: {{ resultado[6]+' '+resultado[7]  }}</h6>
-          <h6 class="white-text">Contacto: {{ resultado[8] }}</h6>
+        <h6 class="white-text">Usuario: {{ resultado[6]+' '+resultado[7]  }}</h6>
+        <h6 class="white-text">Contacto: {{ resultado[8] }}</h6>
         <h6 class="white-text">Hash: {{ resultado[2] }}</h6>
         <h6 class="white-text">Licencia: {{ resultado[3] }}</h6>
       </div>
       {% else %}
-      <div class="col s12 center"><h6 class="white-text">{{ resultado }}</h6></div>
+      <div class="col s12 center">
+        <h6 class="white-text">{{ resultado }}</h6>
+      </div>
       {% endif %}
     </div>
   </div>

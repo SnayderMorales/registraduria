@@ -12,12 +12,6 @@ class Template(ABC):
     mysql = MySQL(app)
 
     def template_method(self, file):
-        """Skeleton of operations to perform. DON'T override me.
-        The Template Method defines a skeleton of an algorithm in an operation,
-        and defers some steps to subclasses.
-        """
-        #b = self.read_files(ruta)
-        #hash_file = self.hash_file(b)
         return self.validate_file(file)
     
     def read_files(self, ruta):

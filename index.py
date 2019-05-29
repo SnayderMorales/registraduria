@@ -19,7 +19,7 @@ app.config['UPLOAD_FOLDER_QUERY'] = Files.UPLOAD_FOLDER_QUERY
 
 @app.route('/')
 def do_the_login():
-    return render_template('query.html')
+    return render_template('query.html', resultado='')
 
 @app.route('/register/')
 def register():
@@ -100,7 +100,7 @@ def query_file():
                 automata = Automata()
                 return render_template('query.html',
                             resultado=automata.template_method(ruta) )
-    return render_template('query.html')
+    return render_template('query.html', resultado='')
 
 
 if __name__ == "__main__":
