@@ -4,7 +4,10 @@
 <section class="cover" style="background-image: url(/static/image/hotel-1330850_1920.jpg)">
   <div class="container caja">
     <div class="row">
-      <h5 class="white-text" align="center">Hello {{ usuario.1 }}!</h5>
+      <h5 class="white-text" align="center">Hello 
+        {{ usuario.1 }}!
+      
+      </h5>
       <form action="/save_file" method="POST" enctype="multipart/form-data">
         <div class="file-field input-field">
           <div class="btn">
@@ -14,18 +17,58 @@
           <div class="file-path-wrapper">
             <input class="file-path validate" type="text">
           </div>
+          <div class="input-field col s12">
+            <select name="licencia">
+              <option value="Archivo no tiene permiso de uso libre.">Privada</option>
+              <option value="Archivo libre de uso." selected>Publico</option>
+            </select>
+            <label style="color: white;">Seleccione tipo de licencia</label>
+          </div>
           <div class="col s12">
-            <input type="text" name="id_user" placeholder="email" value="{{ usuario.0 }}" hidden>
+            <input type="text" name="id_user" value="{{ usuario.0 }}" hidden>
           </div>
         </div>
         <div class="col s12 center">
           <button type="submit" class="btn">Save</button>
         </div>
       </form>
+
+    </div>
+    {% if resultado == 'Archivo guardado' %}
+    <div class="col s12 center">
+      <h6 class="white-text">Usuario: {{ resultado[6]+' '+resultado[7]  }}</h6>
+      <h6 class="white-text">Contacto: {{ resultado[8] }}</h6>
+      <h6 class="white-text">Hash: {{ resultado[2] }}</h6>
+      <h6 class="white-text">Licencia: {{ resultado[3] }}</h6>
+    </div>
+    {% else %}
+    <div class="col s12 center">
+      <h6 class="white-text">{{ resultado }}</h6>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+{% if data %}
+<section class="cover" style="background-image: url(/static/image/hotel-1330850_1920.jpg)">
+  <div class="container caja">
+    <div class="row">
+      <h5 class="white-text" align="center">Hello 
+        No puede guardar este archivo
+      </h5>
+      <div>
+        <div class="col s12 center">
+            <h6 class="white-text">Propietario: {{ data[6]+' '+data[7]  }}</h6>
+            <h6 class="white-text">Hash: {{ data[2] }}</h6>
+            <a href="javascript: history.go(-1)">Volver atrás</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
-{% else %}
-<h1>Hello, World!</h1>
+{% endif %}
+{% if not resultado and data %}
+<h1>Usuario no autenticado.</h1>
 {% endif %}
 {% include 'footer.html' %}
